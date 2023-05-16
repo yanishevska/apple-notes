@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/apple-notes/static/css/main.e6c13ad2.css",
-    "main.js": "/apple-notes/static/js/main.95777e14.js",
+    "main.css": "/apple-notes/static/css/main.a2fc8540.css",
+    "main.js": "/apple-notes/static/js/main.5ed2909a.js",
     "index.html": "/apple-notes/index.html",
-    "main.e6c13ad2.css.map": "/apple-notes/static/css/main.e6c13ad2.css.map",
-    "main.95777e14.js.map": "/apple-notes/static/js/main.95777e14.js.map"
+    "main.a2fc8540.css.map": "/apple-notes/static/css/main.a2fc8540.css.map",
+    "main.5ed2909a.js.map": "/apple-notes/static/js/main.5ed2909a.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.95777e14.js"
+    "static/css/main.a2fc8540.css",
+    "static/js/main.5ed2909a.js"
   ]
 }
