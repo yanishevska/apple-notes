@@ -1,14 +1,23 @@
 import style from "./SearchBox.module.scss";
+import { CiSearch } from "react-icons/ci";
+import { useNotes } from "../../context";
+import React from "react";
 
-function SearchBox() {
+const SearchBox = (props) => {
+  const { handleChange } = useNotes();
   return (
     <div className={style.bgColor}>
-      <p>SearchBox</p>
       <label>
-        Search
-        <input type="text" />
+        <input
+          style={{ height: "33px", textAlign: "center" }}
+          className={style.inputSearch}
+          type="text"
+          placeholder="Search"
+          onChange={handleChange}
+        />
+        <CiSearch />
       </label>
     </div>
   );
-}
+};
 export default SearchBox;

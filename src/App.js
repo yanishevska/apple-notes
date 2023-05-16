@@ -14,7 +14,7 @@ import {
   deleteNoteDB,
   updateNoteDB,
 } from "./db/useIndexDB";
-import { NotesContext } from "./contex";
+import { NotesContext } from "./context";
 import { Modal } from "./components/Modal/Modal";
 
 function App() {
@@ -33,7 +33,6 @@ function App() {
 
   const addNote = async () => {
     const newNote = { id: uuidv4(), text: "", title: "", date: Date.now() };
-    console.log(newNote);
     await saveNoteDB(newNote);
     setNotes((prevState) => [newNote, ...prevState]);
     setCurrentNote(newNote.id);
