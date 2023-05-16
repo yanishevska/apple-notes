@@ -39,14 +39,47 @@ function App() {
     setCurrentNote(newNote.id);
   };
 
+  const deleteNote = async (id) => {
+    await deleteNoteDB(id);
+    setNotes(notes.filter((note) => note.id !== id));
+    setCurrentNote(null);
+    setShowModal(false);
+  };
+
+  const updateNote = async (updatedNoteDB) => {
+    await updateNoteDB(updatedNoteDB);
+    setNotes(
+      notes.map((note) => (note.id === updatedNoteDB.id ? updatedNoteDB : note))
+    );
+  };
+
+  const getCurrentNote = () => {
+    return notes.find(({ id }) => id === currentNote);
+  };
+
+  const handleChange = (evt) => {
+    setSearch(evt.target.value);
+  };
+
+  const getVisibleNotes = () => {
+    const normalizedFilter = search.toLowerCase();
+    return notes.filter((note) =>
+      note.text.toLowerCase().includes(normalizedFilter)
+    );
+  };
   return (
     <NotesContext.Provider
       value={{
         notes,
         addNote,
+        deleteNote,
+        updateNote,
         currentNote,
         setCurrentNote,
+        getCurrentNote,
         setSearch,
+        getVisibleNotes,
+        handleChange,
         setShowModal,
       }}
     >

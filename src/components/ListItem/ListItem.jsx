@@ -1,30 +1,22 @@
 import style from "./ListItem.module.scss";
+import React from "react";
+import { useNotes } from "../../context";
 
-function ListItem() {
-  const date = new Date();
+const ListItem = ({ id, text, title, date }) => {
+  const { currentNote, setCurrentNote } = useNotes();
   return (
-    <div className={style.bgColor}>
-      <p>ListItem</p>
-      <ul>
-        <li>
-          <h3>Wow</h3>
-          <p>{date.toUTCString()}</p>
-          <p>It`s my amazing notes</p>
-        </li>
-        <li>
-          {" "}
-          <h3>Wow</h3>
-          <p>{date.toUTCString()}</p>
-          <p>It`s my amazing notes</p>
-        </li>
-        <li>
-          {" "}
-          <h3>Wow</h3>
-          <p>{date.toUTCString()}</p>
-          <p>It`s my amazing notes</p>
-        </li>
-      </ul>
+    <div className={style.ListItemBox}>
+      <li
+        className={style.ListItem}
+        currentNote={currentNote}
+        id={id}
+        onClick={() => setCurrentNote(id)}
+      >
+        <h2>{title.length > 0 ? title.slice(0, 10) : text.slice(0, 10)}</h2>
+        <p>{text.length > 0 ? text.slice(0, 10) : "My awesome note..."}</p>
+        <p>{new Date(date).toUTCString()}</p>
+      </li>
     </div>
   );
-}
+};
 export default ListItem;

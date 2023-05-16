@@ -1,3 +1,13 @@
-.bgColor {
-  background-color: rgb(144, 0, 255);
+.Form {
+  background-color: rgb(237, 235, 239);
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+}
+
+.Date {
+  text-align: center;
+  color: grey;
+  padding: 20px 0;
 }

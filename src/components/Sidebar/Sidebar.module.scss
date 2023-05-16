@@ -1,3 +1,12 @@
-.bgColor {
-  background-color: rgb(162, 255, 0);
+.List {
+  background-color: #cccbcb;
+  list-style: none;
+  padding: 0px;
+  margin-top: 0;
+  width: 25%;
+  overflow: scroll;
+}
+
+.List:first-child {
+  margin-top: 0;
 }
