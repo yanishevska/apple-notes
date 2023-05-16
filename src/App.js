@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { v4 as uuidv4 } from "uuid";
 import ControlMenu from "./components/ControlMenu/ControlMenu";
 import SearchBox from "./components/SearchBox/SearchBox";
@@ -13,6 +14,8 @@ import {
   deleteNoteDB,
   updateNoteDB,
 } from "./db/useIndexDB";
+import { NotesContext } from "./contex";
+import { Modal } from "./components/Modal/Modal";
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -28,8 +31,25 @@ function App() {
     fetchNotes();
   }, []);
 
+  const addNote = async () => {
+    const newNote = { id: uuidv4(), text: "", title: "", date: Date.now() };
+    console.log(newNote);
+    await saveNoteDB(newNote);
+    setNotes((prevState) => [newNote, ...prevState]);
+    setCurrentNote(newNote.id);
+  };
+
   return (
-    <>
+    <NotesContext.Provider
+      value={{
+        notes,
+        addNote,
+        currentNote,
+        setCurrentNote,
+        setSearch,
+        setShowModal,
+      }}
+    >
       <WrapHeader>
         <ControlMenu />
         <SearchBox />
@@ -38,8 +58,13 @@ function App() {
       <Wrap>
         <Sidebar />
         <Workspace />
+        {showModal &&
+          createPortal(
+            <Modal onClose={() => setShowModal(false)} />,
+            document.body
+          )}
       </Wrap>
-    </>
+    </NotesContext.Provider>
   );
 }
 

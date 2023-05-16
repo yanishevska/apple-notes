@@ -1,0 +1,45 @@
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(123, 123, 123, 0.8);
+  font-size: 32px;
+  text-align: center;
+  font-weight: 700;
+  z-index: 1200;
+}
+
+.Modal {
+  max-width: calc(100vw - 48px);
+  max-height: calc(100vh - 24px);
+}
+
+.BtnModal {
+  width: 150px;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 5px;
+  color: rgb(3 172 169);
+  text-shadow: 2px 1px 1px rgb(29, 29, 30);
+  background-color: rgba(251, 239, 239, 0.163);
+  border: 3px solid rgb(3 172 169);
+  border-radius: 30px;
+  margin: 10px 0px 20px 0px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.BtnModal:first-child {
+  margin-right: 20px;
+}
+
+.BtnModal:hover,
+.BtnModal:hover {
+  color: rgb(25, 24, 24);
+  background-color: rgb(3 172 169);
+  text-shadow: none;
+}
